@@ -48,7 +48,7 @@ public class MainFrame extends JFrame {
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (txtAddTodo.getText().trim().length() == 0) {
+                if (txtAddTodo.getText().trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Use a better name for your todo!", "Empty name", JOptionPane.ERROR_MESSAGE);
                 } else {
                     todoList.add(new TodoItem(txtAddTodo.getText()));
