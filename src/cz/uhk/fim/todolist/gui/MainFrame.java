@@ -43,14 +43,18 @@ public class MainFrame extends JFrame {
 
         JLabel lblAddTodo = new JLabel("Add TODO");
         JTextField txtAddTodo = new JTextField();
-        JButton btnAdd = new JButton("Přidej");
+        JButton btnAdd = new JButton("Add");
 
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                todoList.add(new TodoItem(txtAddTodo.getText()));
-                txtAddTodo.setText("");
-                model.setTodoList(todoList);
+                if (txtAddTodo.getText().trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Use a better name for your todo!", "Empty name", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    todoList.add(new TodoItem(txtAddTodo.getText()));
+                    txtAddTodo.setText("");
+                    model.setTodoList(todoList);
+                }
             }
         });
 

@@ -1,5 +1,7 @@
 package cz.uhk.fim.todolist.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,8 +24,9 @@ public class TodoList {
 
     public void changeItemState(int index){
         TodoItem item = get(index);
+        DateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 
         item.setComplete(!item.isComplete());
-        item.setDateTime((item.isComplete())? new Date().toString() : "");
+        item.setDateTime((item.isComplete())? format.format(new Date()) : "");
     }
 }

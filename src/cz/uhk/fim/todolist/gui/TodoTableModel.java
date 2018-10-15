@@ -54,7 +54,7 @@ public class TodoTableModel extends AbstractTableModel {
                 item.setTitle((String) aValue);
                 break;
             case 1:
-                item.setComplete((Boolean) aValue);
+                todoList.changeItemState(rowIndex);
                 break;
             default:
                 break;
